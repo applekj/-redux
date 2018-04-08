@@ -5,7 +5,7 @@ action:用来改变state的指令，它是一个对象，可以理解为应用�
 reducer:应用收到action以后，通过计算，返回一个新的state，这个计算过程就叫做reducer，可以理解为应用的输出      
 # 二、redux是怎么工作的
 在redux里，真正干活的是`store`，那`store`是什么呢，如下图：  
-![加载失败，请刷新网页](https://github.com/applekj/redux-learn/tree/master/img/store.jpg)  
+![加载失败，请刷新网页](redux-learn/img/store.jpg)  
 可以看到`store`就是一个对象，里面有5个方法，分别是`dispatch`,`getState`,`replaceRducer`,`subscribe`,`Symbol`  
 下面详细介绍前3个方法(核心)：
 > dispatch方法，视图调用此方法用来发送action到store,这是改变数据的唯一方法          
