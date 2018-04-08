@@ -1,7 +1,7 @@
 ## 快速启动
-git clone https://github.com/applekj/redux-learn.git
-npm i 
-npm run start
+git clone https://github.com/applekj/redux-learn.git  
+npm i   
+npm run start  
 ## 一、什么是redux  
 redux是一个基于flux的前端架构，它的设计思想很简单，认为一个web应用就是一个状态机，视图与状态是一一对应的，所有的状态都保存在一个对象里。  这里有3个基本概念需要理清楚  
 **state**: 它是一个对象，应用所有的状态都保存在这个对象里，state长什么样，view就长什么样(注意这里的state跟react的state不是一个概念)      
@@ -110,3 +110,6 @@ render(
 ```
 启动项目  
 npm run start
+
+> redux并不一定要搭配react使用，它只是一个状态管理库，几乎可以搭配任何框架使用，如果这篇文章对您学习redux有帮助，不妨点个star  
+本人目前求职中，职位：前端开发工程师，坐标：武汉，如有小伙伴内推，或者需要前端开发，联系邮箱：yanjingjie86@126.com  
