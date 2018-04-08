@@ -87,7 +87,7 @@ const AddTodoContainer = connect()(AddTodo);
 **mapStateToProps**： 这个参数事实上是一个方法，它接受state作为参数，返回一个对象，UI件可以获取到该对象，用于展示数据，该方法将逻辑件的数据映射到UI件  
 **mapDispatchToProps**: 这个参数是一个对象，也可以是一个方法，如果是一个方法，它返回一个对象，不管如何，UI件都能获取到如这样的对象{filter:filter => dispatch(filter)}，该对象里的value值是一个方法，UI件通过调用该方法，将action传给store，改变state  
 注意：这两个参数是可以省略的，如果省略，UI件只能得到一个dispatch方法    
-**Provider**： connect()方法生成逻辑组件后，需要让逻辑组件拿到state,在项目组件外包一层，就像这样：
+**Provider**： connect()方法生成逻辑组件后，需要让逻辑组件拿到state,在项目根组件外包一层，就像这样：
 ```
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
