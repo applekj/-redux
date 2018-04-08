@@ -78,7 +78,7 @@ if (module.hot) {
 **注意**: state长什么样，是由reducer控制的，它可以是数字、字符串、数组，也可以是对象;上例中，在reducer里设置state的初始值为0,如果没有初始值，会报错，因为初始值默认为undefined，与数字相加得到的是NaN  
 看到这里基本明白了redux是怎么工作的，如果还不明白，对照上例，再看一遍，跟着写一遍，加深理解。在实际react项目中，为方便使用redux，会用到react-redux库，接下来介绍react-redux用法，务必理解redux的基本用法
 
-## 三、如何使用react-redux中间件
+## 三、如何使用react-redux库
 react-redux将组件分为两大类，UI组件和逻辑组件（也叫容器组件），react-redux提供一个方法connect(),将UI件和逻辑件关联起来，事实上，逻辑件是通过调用connect方法定义的，例如：
 ```
 const AddTodoContainer = connect()(AddTodo);
