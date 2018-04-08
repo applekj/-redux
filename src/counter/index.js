@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
 //定义reducer
-const counterReducer = (state = {value:0},action) => {
+const counterReducer = (state ,action) => {
   console.log(state,'this is state!');
   switch (action.type) {
     case 'INCREMENT':
-      return {value:state.value + 1};
+      return {value:state + 1};
     case 'DECREMENT':
-      return {value:state.value - 1};
+      return {value:state - 1};
     default :
       return state;
   }
@@ -43,7 +43,7 @@ class App extends Component{
 	render(){
 		return (
       <p>
-      	Clicked:<span id="value">{store.getState().value}</span> times
+      	Clicked:<span id="value">{store.getState()}</span> times
       	<button id="increment" onClick={()=>{store.dispatch({type:'INCREMENT'})}}>+</button>
       	<button id="decrement" onClick={() => {store.dispatch({type:'DECREMENT'})}}>-</button>
       	<button id="incrementIfOdd" onClick={this.incrementIfOdd}>Increment if odd </button>
