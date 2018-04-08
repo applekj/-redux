@@ -1,3 +1,7 @@
+## 快速启动
+git clone https://github.com/applekj/redux-learn.git
+npm i 
+npm run start
 ## 一、什么是redux  
 redux是一个基于flux的前端架构，它的设计思想很简单，认为一个web应用就是一个状态机，视图与状态是一一对应的，所有的状态都保存在一个对象里。  这里有3个基本概念需要理清楚  
 **state**: 它是一个对象，应用所有的状态都保存在这个对象里，state长什么样，view就长什么样(注意这里的state跟react的state不是一个概念)      
@@ -72,14 +76,37 @@ if (module.hot) {
 
 在上例中，view在用户点击按钮时，只负责发送action，store接收到action后，自动调用reducer得到新的state，程序再通过getState方法拿到数据改变view    
 **注意**: state长什么样，是由reducer控制的，它可以是数字、字符串、数组，也可以是对象;上例中，在reducer里设置state的初始值为0,如果没有初始值，会报错，因为初始值默认为undefined，与数字相加得到的是NaN  
-看到这里基本明白了redux是怎么工作的，如果还不明白，对照上例，再看一遍，跟着写一遍，加深下理解。在实际react项目中，为方便使用redux，会用到react-redux库，接下来介绍react-redux用法，务必理解redux的基本用法
+看到这里基本明白了redux是怎么工作的，如果还不明白，对照上例，再看一遍，跟着写一遍，加深理解。在实际react项目中，为方便使用redux，会用到react-redux库，接下来介绍react-redux用法，务必理解redux的基本用法
 
 ## 三、如何使用react-redux中间件
 react-redux将组件分为两大类，UI组件和逻辑组件（也叫容器组件），react-redux提供一个方法connect(),将UI件和逻辑件关联起来，事实上，逻辑件是通过调用connect方法定义的，例如：
 ```
 const AddTodoContainer = connect()(AddTodo);
 ```
-可以看出connect()方法返回值也是一个方法，传入UI件，生成逻辑件；connect()方法可以传入两个参数，第一个参数mapStateToProps，第二个参数mapDispatchToProps。
+可以看出connect()方法返回值也是一个方法，传入UI件，生成逻辑件；connect()方法可以传入两个参数，第一个参数mapStateToProps，第二个参数mapDispatchToProps。  
 **mapStateToProps**： 这个参数事实上是一个方法，它接受state作为参数，返回一个对象，UI件可以获取到该对象，用于展示数据，该方法将逻辑件的数据映射到UI件  
 **mapDispatchToProps**: 这个参数是一个对象，也可以是一个方法，如果是一个方法，它返回一个对象，不管如何，UI件都能获取到如这样的对象{filter:filter => dispatch(filter)}，该对象里的value值是一个方法，UI件通过调用该方法，将action传给store，改变state  
-注意：这两个参数是可以省略的，如果省略，UI件只能得到一个dispatch方法  
+注意：这两个参数是可以省略的，如果省略，UI件只能得到一个dispatch方法    
+**Provider**： connect()方法生成逻辑组件后，需要让逻辑组件拿到state,在项目组件外包一层，就像这样：
+```
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import todoApp from './reducers'
+import App from './components/App'
+
+let store = createStore(todoApp);
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
+结合例子，深入理解react-redux  
+修改webpack.config.js文件
+```
+'./src/counter/index.js'  改为  './src/todoList/index.js'
+```
+启动项目  
+npm run start
