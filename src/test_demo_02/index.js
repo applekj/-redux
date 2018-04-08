@@ -6,7 +6,6 @@ import {createStore} from 'redux';
 import indexReducer from './reducers/indexReducer';
 import TodoList from './containers/TodoListContainer.js';
 import FilterBut from './containers/FilterFooter.js';
-import UndoRedo from './containers/UndoRedo';
 
 const store = createStore(indexReducer);
 class App extends Component{
@@ -20,7 +19,6 @@ class App extends Component{
         <AddTodo></AddTodo>
         <TodoList></TodoList>
         <FilterBut></FilterBut>
-        <UndoRedo />
       </div>
 		)
 	}
