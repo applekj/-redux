@@ -1,9 +1,9 @@
 ## 一、什么是redux  
 redux是一个基于flux的前端架构，它的设计思想很简单，认为一个web应用就是一个状态机，视图与状态是一一对应的，所有的状态都保存在一个对象里。这里有3个基本概念需要理清楚
 
-state:它是一个对象，应用所有的状态都保存在这个对象里，state长什么样，视图(view)就长什么样    
-action:用来改变state的指令，它是一个对象，可以理解为应用的输入    
-reducer:应用收到action以后，通过计算，返回一个新的state，这个计算过程就叫做reducer，可以理解为应用的输出      
+**state**:它是一个对象，应用所有的状态都保存在这个对象里，state长什么样，视图(view)就长什么样    
+**action**:用来改变state的指令，它是一个对象，可以理解为应用的输入    
+**reducer**:应用收到action以后，通过计算，返回一个新的state，这个计算过程就叫做reducer，可以理解为应用的输出      
 ## 二、redux是怎么工作的
 在redux里，真正干活的是`store`，那`store`是什么呢，如下图：  
 ![加载失败，请刷新网页](https://github.com/applekj/redux-learn/blob/master/img/store.jpg)  
