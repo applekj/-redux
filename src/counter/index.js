@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
 //定义reducer
-const counterReducer = (state ,action) => {
+const counterReducer = (state = 0 ,action) => {
   console.log(state,'this is state!');
   switch (action.type) {
     case 'INCREMENT':
@@ -22,32 +22,14 @@ console.log(store,'this is store!');
 class App extends Component{
 	constructor(props){
     super(props);
-    this.incrementAsync = this.incrementAsync.bind(this);
-    this.incrementIfOdd = this.incrementIfOdd.bind(this);
 	}
-
-  handleIncrement(action){
-    store.dispatch(action)
-  }
-
-  incrementIfOdd() {
-    if (store.getState().value% 2 !== 0) {
-      this.handleIncrement({type:'INCREMENT'});
-    }
-  }
-
-  incrementAsync() {
-    setTimeout(() => {this.handleIncrement({type:'INCREMENT'})}, 1000);
-  }
 
 	render(){
 		return (
       <p>
       	Clicked:<span id="value">{store.getState()}</span> times
-      	<button id="increment" onClick={()=>{store.dispatch({type:'INCREMENT'})}}>+</button>
+      	<button id="increment" onClick={()=> {store.dispatch({type:'INCREMENT'})}}>+</button>
       	<button id="decrement" onClick={() => {store.dispatch({type:'DECREMENT'})}}>-</button>
-      	<button id="incrementIfOdd" onClick={this.incrementIfOdd}>Increment if odd </button>
-      	<button id="incrementAsync" onClick={this.incrementAsync}>Increment async</button>
       </p>
 		)
 	}
