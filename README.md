@@ -7,7 +7,7 @@ redux是一个基于flux的前端架构，它的设计思想很简单，认为�
 在redux里，真正干活的是`store`，那`store`是什么呢，如下图：  
 ![加载失败，请刷新网页](https://github.com/applekj/redux-learn/blob/master/img/store.jpg)  
 可以看到`store`就是一个对象，里面有5个方法，分别是`dispatch`,`getState`,`replaceRducer`,`subscribe`,`Symbol`  
-下面详细介绍前3个方法(核心)：  
+要了解redux是如何工作的，只需要了解前3个核心方法即可，下面介绍下这几个方法：  
 **dispatch**: 视图调用此方法用来发送action到store,这是改变数据的唯一方法          
 **getState**: 通过该方法可以拿到state，state与store的关系就是state = store.getState()     
 **subscribe**: 用来监听view的更新函数(在react里，更新函数指的是ReactDOM的render方法)，一旦state发生变化，自动执行该函数，改变view  
@@ -22,3 +22,4 @@ npm run start
 
 在上例中，view在用户点击按钮时，只负责发送action，store接收到action后，自动调用reducer得到新的state，程序再通过getState方法拿到数据展示    
 **注意**: state长什么样，是由reducer控制的，它可以是数字、字符串、数组也可以是对象;上例中，在reducer里设置state的初始值为0,如果没有初始值，会报错，因为初始值默认为undefined，与数字相加得到的是NaN  
+看到这里基本明白了redux是怎么工作的，如果还不明白，对照上例，再看一遍，跟着手写一遍，加深下理解
