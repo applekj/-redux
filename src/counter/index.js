@@ -1,15 +1,27 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
-import {counterReducer} from './reducers/reducer';
 
+//定义reducer
+const counterReducer = (state = {value:0},action) => {
+  console.log(state,'this is state!');
+  switch (action.type) {
+    case 'INCREMENT':
+      return {value:state.value + 1};
+    case 'DECREMENT':
+      return {value:state.value - 1};
+    default :
+      return state;
+  }
+};
+
+//创建store
 const store = createStore(counterReducer);
-console.log(store);
+console.log(store,'this is store!');
 
 class App extends Component{
 	constructor(props){
     super(props);
-    this.handleIncrement = this.handleIncrement.bind(this);
     this.incrementAsync = this.incrementAsync.bind(this);
     this.incrementIfOdd = this.incrementIfOdd.bind(this);
 	}
@@ -32,8 +44,8 @@ class App extends Component{
 		return (
       <p>
       	Clicked:<span id="value">{store.getState().value}</span> times
-      	<button id="increment" onClick={this.handleIncrement.bind(this,{type:'INCREMENT'})}>+</button>
-      	<button id="decrement" onClick={() => {this.handleIncrement({type:'DECREMENT'})}}>-</button>
+      	<button id="increment" onClick={()=>{store.dispatch({type:'INCREMENT'})}}>+</button>
+      	<button id="decrement" onClick={() => {store.dispatch({type:'DECREMENT'})}}>-</button>
       	<button id="incrementIfOdd" onClick={this.incrementIfOdd}>Increment if odd </button>
       	<button id="incrementAsync" onClick={this.incrementAsync}>Increment async</button>
       </p>
@@ -51,6 +63,7 @@ const render = () => {
 render();
 store.subscribe(render);
 
+//设置热更新
 if (module.hot) {
   module.hot.accept();
 }

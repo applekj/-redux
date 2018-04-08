@@ -6,7 +6,7 @@ module.exports = {
   entry:[
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    './src/demo_01/index.js'
+    './src/counter/index.js'
   ],
   output:{
     path:path.resolve(__dirname,'public'),
