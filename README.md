@@ -82,7 +82,7 @@ if (module.hot) {
 
 在上例中，view在用户点击按钮时，只负责发送action，store接收到action后，自动调用reducer得到新的state，程序再通过getState方法拿到数据改变view 
 
-**注意**: state长什么样，是由reducer控制的，它可以是数字、字符串、数组，也可以是对象;上例中，在reducer里设置state的初始值为0,如果没有初始值，会报错，因为初始值默认为undefined，与数字相加得到的是NaN  
+**注意**: state长什么样，是由reducer控制的，它可以是数字、字符串、数组，也可以是对象;上例中，在reducer里设置state的初始值为0,如果没有初始值，初始值默认为undefined，view发送action时会报错，因为undefined与数字相加得到的是NaN  
 
 看到这里基本明白了redux是怎么工作的，如果还不明白，对照上例，再看一遍，跟着写一遍，加深理解。在实际react项目中，为方便使用redux，会用到react-redux库，接下来介绍react-redux用法，务必理解redux的基本用法
 
@@ -99,7 +99,7 @@ const AddTodoContainer = connect()(AddTodo);
 
 注意：这两个参数是可以省略的，如果省略，UI件只能得到一个dispatch方法   
 
-**Provider**： connect()方法生成逻辑组件后，需要让逻辑组件拿到state,在项目根组件外包一层，就像这样：
+**Provider**： connect()方法生成逻辑组件后，需要让逻辑组件拿到state,如何拿到state呢，只需要在项目根组件外包一层即可，就像这样：
 ```
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
