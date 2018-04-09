@@ -28,4 +28,5 @@ class AddTodo extends Component{
 	}
 }
 
-export default connect()(AddTodo);
+const AddTodoContainer = connect()(AddTodo);
+export default AddTodoContainer;
