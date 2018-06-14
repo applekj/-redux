@@ -1,14 +1,14 @@
 {
-  "name": "demo_01",
+  "name": "{{name}}",
   "version": "1.0.0",
-  "description": "",
+  "description": "{{description}}",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "webpack-dev-server --config webpack.config.js"
   },
-  "author": "yanjingjie",
+  "author": "{{author}}",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
